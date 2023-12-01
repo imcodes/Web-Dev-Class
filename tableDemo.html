@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Demo</title>
+    <!--Internal Css/Styling-->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:#ededed;
+        }
+
+        div.content{
+            width:80vw;
+            margin:0px auto;
+        }
+
+        table.table{
+            margin:0px auto;
+            width:90%;
+            min-width: 350px;
+        }
+
+        table.table th, table.table td{
+            padding:10px;
+            text-align:left;
+        }
+
+        .table-stripped tbody tr:nth-child(even){
+            background:rgba(76, 103, 237, 0.31);
+        }
+        .aggregate-row{
+            background-color:#cccd !important;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .aggregate-row td{
+            border-top: 3px solid rgba(76, 103, 237, 0.71);;
+        }
+
+        .responsive-table{
+            padding:5px;
+            width:100%;
+            overflow-x: auto;
+        }
+
+        h1{
+            text-align: center;
+            padding:10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <a href="ListDemo.html"> See List</a>
+        <h1>Table Demo</h1>
+        <div class="responsive-table">
+            <table cellspacing="0" cellpadding=10px" class="table table-stripped">
+                <caption>List of qualified students for adminssion</caption>
+                <thead>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Course</th>
+                    <th>Age</th>
+                </thead>
+        
+                <tbody>
+                    <tr>
+                        <td>Malic Abdul</td>
+                        <td>malic@gmail.com</td>
+                        <td>+23470787663</td>
+                        <td>Computer Science</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Johnson Adamu</td>
+                        <td>john@gmail.com</td>
+                        <td>+23470787663</td>
+                        <td>Health Science</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Immaculate Blessing</td>
+                        <td>imbless@gmail.com</td>
+                        <td>+2347078347663</td>
+                        <td>Business Administration</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>Onome Abraham</td>
+                        <td>onome@gmail.com</td>
+                        <td>+2347034561197</td>
+                        <td>Environmental Science</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Favour Suleman</td>
+                        <td>favsul@gmail.com</td>
+                        <td>+23475687663</td>
+                        <td>Food Science</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>Miracle Ujunwa</td>
+                        <td>miracleuju@gmail.com</td>
+                        <td>+23470787687</td>
+                        <td>Banking and finance</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>James Abdulahi</td>
+                        <td>jamesabdul@gmail.com</td>
+                        <td>+23470787663</td>
+                        <td>Fine and Applied Art</td>
+                        <td>25</td>
+                    </tr>
+    
+                    <tr class="aggregate-row">
+                        <td colspan="4">Average Age:</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

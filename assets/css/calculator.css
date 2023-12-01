@@ -1,0 +1,46 @@
+.container {
+  height: 100vh;
+}
+.container .calculator {
+  max-width: 400px;
+  outline: black 1px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: auto;
+  background-color: hsl(0, 0%, 40%);
+}
+.container .calculator .screen {
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.container .calculator .screen input, .container .calculator .screen .result {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 30px;
+  border: none;
+  text-align: right;
+}
+.container .calculator .screen input:focus, .container .calculator .screen .result:focus {
+  outline: 0;
+}
+.container .calculator .screen .result {
+  min-height: 3.8rem;
+  font-weight: bold;
+}
+.container .calculator .buttons {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+.container .calculator .buttons .numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.container .calculator .buttons .operators {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}/*# sourceMappingURL=calculator.css.map */

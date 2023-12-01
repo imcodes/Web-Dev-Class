@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/heart icon.png" type="image/x-icon">
+    <title>List Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: eduface;
+            src: url("assets/fonts/Edu_TAS_Beginner/EduTASBeginner-VariableFont_wght.ttf") format('truetype');
+        };
+        html{
+            scroll-behavior: smooth;
+        }
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0;
+        }
+        body{
+            font-family: eduface;
+            background:linear-gradient(45deg, lightblue,pink);
+        }
+        .content{
+            width:95vw;
+            max-width:1920px;
+            margin:0px auto;
+            background-color: #eeeeeec5;
+            padding:2rem;
+        }
+        .mainHeader{
+            padding:1rem 2rem;
+            background-color:rgb(3, 3, 3);
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mainHeader .logo img{
+            width:150px;
+        }
+        .mainHeader .menu{
+            flex-grow: 2;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .mainHeader .menu a{
+            color:#fff;
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .listSection{
+            height:550px;
+            padding-top:4rem;
+            padding-bottom:4rem;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-basis:1;
+
+        }
+
+        .listSection div{
+            padding:2rem 3rem;
+            overflow-y:auto;
+        }
+
+        #dataList{
+            width:40%;
+            background:lightskyblue;
+        }
+        #orderList{
+            background:pink;
+        }
+        #unOrderList{
+            background:lightseagreen;
+        }
+        .textSection{
+            font-family: 'Caveat', cursive;
+            display:block;
+        }
+        /* Media Query for Tablet & Mobile */
+        @media screen and (max-width:950px) {
+            .listSection{
+                flex-direction: column;
+                height:auto;
+            }
+            #dataList{
+                width:100%;
+            }
+            .listSection div{
+                margin-top:1rem;
+                overflow-y: inherit;
+            }
+        }
+
+        /* For very small screens */
+        @media screen and (max-width:588px){
+            .content{
+                width:100vw;
+                padding:1rem;
+            }
+        }
+    </style>
+</head>
+<body id="body">
+    <header class="mainHeader">
+        <div class="logo">
+            <img src="Softgene-Logo-darkmode.png" alt="Logo">
+        </div>
+        <nav class="menu">
+            <a href="#dummy"> Read some Text</a>
+            <a href="tableDemo.html"> See Table</a>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>This is a List Demo page</h1>
+    
+        <section class="listSection">
+            <!--Data List-->
+            <div id="dataList">
+                <h2>Data List Example</h2>
+                <dl>
+                    <dt>Strenght</dt>
+                    <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam deleniti tempore accusantium consequuntur, veniam ducimus iure aperiam quae, modi natus, deserunt repellendus? Voluptate optio eligendi quo voluptas harum beatae iusto.
+                    Possimus veniam consequatur ipsa illo ut ducimus, cumque nobis nisi nostrum in fugit tempore, exercitationem incidunt ab dignissimos, cupiditate necessitatibus officia? Et, sapiente laborum. Suscipit excepturi debitis nesciunt possimus unde!
+                    </dd>
+        
+                    <dt>Honesty</dt>
+                    <dd>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam quod optio magnam debitis temporibus placeat accusamus iste inventore iure obcaecati culpa eveniet fuga ea eligendi, ipsam voluptatem fugit incidunt illum?
+                    Nemo at quia odit doloremque nobis porro sit dolorum natus iste sed! Sapiente</dd>
+        
+                    <dt>Strategy</dt>
+                    <dd>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum est praesentium magni dicta minus aspernatur cupiditate dolorem. Cumque, sed soluta. Culpa eaque impedit officiis, quidem molestias necessitatibus reprehenderit vel distinctio.
+                    Explicabo nemo et fugiat, laudantium quibusdam id quae. Ab, quod eveniet vel distinctio placeat optio corporis quia, esse labore repellat suscipit quidem ipsam aperiam quasi porro obcaecati iure, nesciunt accusantium.</dd>
+                </dl>
+            </div>
+        
+            <!-- Unordered List-->
+            <div id="unOrderList">
+                <h2>Unordered List Example</h2>
+                <ul style="list-style-type: circle;">
+                    <li>Mango</li>
+                    <li>Orange</li>
+                    <li>Apple</li>
+                    <li>Grape</li>
+                </ul>
+            </div>
+        
+            <!--Ordered List-->
+            <div id="orderList">
+                <h2>Ordered List Example</h2>
+                <ol>
+                    <li>Mango</li>
+                    <li>Orange</li>
+                    <li>Pinapple</li>
+                    <li>Guava</li>
+                </ol>
+            </div>
+        </section>
+    
+        <!--Dummy Text-->
+        <section class="textSection">
+            <p id="dummy">
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+            <p>
+                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum qui ab dolorum quidem, similique recusandae laudantium repellendus praesentium at ducimus! Sint libero, temporibus assumenda ducimus hic cupiditate magnam blanditiis nemo.</span><span>Reprehenderit nam laboriosam veritatis enim perferendis! Voluptate atque quos asperiores porro voluptates quibusdam delectus, consequuntur magnam nam rem, explicabo unde nesciunt maxime. Magnam sapiente consequatur quas impedit ut nihil ex!</span><span>Quos, nobis. Repellat dolor et, excepturi quos omnis laboriosam tempore accusamus eos. Non quibusdam, quos odit maxime esse itaque recusandae impedit totam illum, ipsam vel ullam cum, consectetur mollitia placeat!</span><span>Provident, atque iste modi repellendus maxime veniam quod aliquam voluptas voluptatibus quibusdam dolores quidem obcaecati, quis dolore aperiam? Quia ipsum dicta officia praesentium necessitatibus! Quasi neque ullam voluptatum iusto laboriosam!</span><span>Quibusdam odit nulla dolorem aperiam amet libero doloremque officia deserunt dolores beatae nostrum reprehenderit, facilis tempora adipisci facere ducimus provident consectetur dicta. Rerum, necessitatibus! Aperiam officiis incidunt consectetur consequatur aut?</span>
+            </p>
+    
+            <nav>
+                <a href="#body">Go to Top</a>
+            </nav>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/assets/css/auth.css">
+
+    <!-- Font awesome script -->
+    <script src="https://kit.fontawesome.com/7cfae44c46.js" crossorigin="anonymous"></script>
+    <!-- Line font icons -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+
+</head>
+<body>
+    <div class="container  w-75">
+        <div class="auth-header">
+            <img src="/assets/images/Softgene-Logo-darkmode.png" alt="Official Logo">
+            <h1 data-answer="mytitle" class="auth-title mb-2 mt-1">Member Registration</h1>
+        </div>
+
+        <form action="#" method="post">
+            <div class="form-group mb-1">
+                <label for="fname"><i class="fa-regular fa-user"></i> Full Name <span>*</span></label>
+                <input type="text" id="fname" name="fname" placeholder="surname first-name other-names">
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-6 form-group">
+                    <label for="dob"><i class="lni lni-calendar"></i> Date of Birth <span>*</span></label>
+                    <input type="date" id="dob" name="dob" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="phone"><i class="fa-solid fa-phone"></i> Phone <span>*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter Phone number">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-6 form-group">
+                    <label for="username">Username <span>*</span></label>
+                    <input type="text" id="username" name="username" placeholder="Enter username">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="email">Email <span>*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com">
+                </div>
+            </div>
+
+            <div class="form-group mb-1">
+                <label for="address">Residential Address</label>
+                <textarea name="address" id="address" rows="4" placeholder="Enter your full address"></textarea>
+            </div>
+
+            <div class="row mb-1">
+                <div class="form-group col-6">
+                    <label for="">Marital Status</label>
+                    <div class="radio-group d-flex">
+                        <div class="radio-input d-flex">
+                            <input type="radio" name="mstatus" id="married" value="married"> <label for="married"> Married</label> 
+                        </div>
+                        <div class="radio-input d-flex">
+                            <input type="radio" name="mstatus" id="single" value="single"> <label for="single">Single</label> 
+                        </div>
+                        <div class="radio-input d-flex">
+                            <input type="radio" name="mstatus" id="divorced" value="divorced"> <label for="divorced">Divorced</label> 
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label for="eye-color">Eye Color</label>
+                    <input type="color" id="eye-color" name="eye-color">
+                </div>
+            </div>
+            
+            <div class="row mb-1">
+                <div class="col-6 form-group">
+                    <label for="state-o">State of Origin <span>*</span></label>
+                    <select name="state-o" id="state-o" required>
+                        <option value="">Select state</option>
+                        <option value="abia">Abia</option>
+                        <option value="adamawa">Adamawa</option>
+                        <option value="akwa-ibom">Akwa-Ibom</option>
+                        <option value="anambra">Anambra</option>
+                    </select>
+                </div>
+                <div class="col-6 form-group">
+                    <label for="country-o">Country of Origin</label>
+                    <select name="country-o" id="country-o">
+                        <option value="">Select country</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="America">United States of America</option>
+                        <option value="Ghana">Ghana</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-6 form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="c-password">Confirm Password</label>
+                    <input type="password" name="c-password" id="c-password" placeholder="Repeat Password">
+                </div>
+            </div>
+
+            <div class="action-group mb-1">
+                <button class="btn" type="submit">Register &rarr;</button>
+                <button class="btn" type="reset">Clear</button>
+                <span class="small-text">Already have an account <a href="login.html" title="Click here to login">Login here</a></span>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

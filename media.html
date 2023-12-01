@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Demos</title>
+    <!-- Line font icons -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .grid{
+            display:grid;
+            /* define Column Templates (How many columns we need) */
+            grid-template-columns: repeat(4,1fr);
+            gap:1.5rem;
+
+        }
+
+        .grid .card:last-child{
+            grid-column: 3 / span 2;
+            grid-row:1 / span 2;
+        }
+        .grid-col-span-2{
+            grid-column:span 2;
+        }
+        .card-body > *{
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        window.onload = () =>{
+            //Variable Initialization
+            let vPlayer = document.getElementById('video-player')
+            let btnPlay = document.getElementById('btn-play')
+            let btnPause = document.getElementById('btn-pause')
+
+            //Function definitions
+            let play = () =>{
+                vPlayer.play()
+
+            }
+
+            let playPause = () => {
+                let state = vPlayer.paused
+                if(state){
+                    play()
+                    btnPlay.classList.remove('lni-play')
+                    btnPlay.classList.add('lni-pause')
+                }else{
+                    pause()
+                    btnPlay.classList.remove('lni-pause')
+                    btnPlay.classList.add('lni-play')
+                }
+            }
+            let pause = () => {
+                vPlayer.pause()
+            }
+
+        
+            //Listen for events
+            btnPlay.onclick = () =>{playPause()}
+            // btnPause.onclick = () => {pause()}
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Media Demonstrations</h1>
+
+        <main class="grid pt-4 pb-5">
+            <!-- Audio demo -->
+            <div class="card card-primary border-primary">
+                <div class="card-header bg-primary text-light">
+                    Audio
+                </div>
+                <div class="card-body">
+                    <audio controls>
+                        <source media="(min-width: )" src="assets/media/Spyro-Who-Is-Your-Guy-New-Song-(TrendyBeatz.com).wav" type="audio/wav">
+                        <source media="(min-width: )" src="assets/media/Spyro-Who-Is-Your-Guy-New-Song-(TrendyBeatz.com).mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+            
+            <!-- Video Demo -->
+            <div class="card border-success ">
+                <div class="card-header bg-success text-light">
+                    Video Demo
+                </div>
+                <div class="card-body">
+                    <video  width="300rem" controls poster="assets/images/Softgene-Logo-darkmode.png" src="assets/media/vids/Unlock Your Potential- Embrace Your Unique Path.mp4"></video>
+                </div>
+            </div>
+            
+            <!-- Video with Custom Control -->
+            <div class="card border-info ">
+                <div class="card-header bg-info text-light">
+                    Video with Custome Controls
+                </div>
+                <div class="card-body">
+                    <video  id="video-player" width="300rem" poster="assets/images/Softgene-Logo-darkmode.png" src="assets/media/vids/Unlock Your Potential- Embrace Your Unique Path.mp4"></video>
+                </div>
+                <div class="card-footer">
+                    <div>
+                        <i class="lni lni-play" id="btn-play"></i>
+                        <!-- <i class="lni lni-pause" id="btn-pause"></i> -->
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Embed Documents -->
+            <div class="card border-danger ">
+                <div class="card-header bg-danger text-light">
+                    Embed Documents
+                </div>
+                <div class="card-body">
+                    <embed src="assets/media/5 Online Business Models You Can Start Today.pdf" type="">
+                </div>
+            </div>
+    
+            <!-- Embed HTML FILES as objects -->
+            <div class="card border-warning">
+                <div class="card-header bg-warning text-light">
+                    HTML/OBJECT FILE EMBED
+                </div>
+                <div class="card-body">
+                    <object data="tableDemo.html" height="100%"></object>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
