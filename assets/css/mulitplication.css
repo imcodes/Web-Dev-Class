@@ -1,0 +1,22 @@
+
+.align-middle{
+    margin:0 auto;
+}
+
+.output{
+    /* width:calc(100% - 20px); */
+    display:flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.output .card{
+    min-width:120px;
+}
+
+.output ul{
+    list-style: none;
+}
