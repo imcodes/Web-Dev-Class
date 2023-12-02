@@ -23,6 +23,7 @@
                    <input type="number" class="form-control" min="1" name="min_range" id="min-range" placeholder="min range" required>&nbsp;&nbsp;
                    <input type="number" class="form-control" min="1" name="max_range" id="max-range" placeholder="max range" required>
                </div>
+               <small class="err-message" id="range_error"></small>
                <small class="text-muted">
                 What is the range of tables to be generate (eg: 2 multiples to 20 multiples)
                </small>
@@ -31,6 +32,7 @@
              <div class="col-md-4">
                <label for="higest-multiple" class="form-label">Highest Multiple</label>
                <input type="number" min="2" name="highest_multiple" class="form-control" id="higest-multiple" required>
+               <small class="err-message" id="mult_error"></small>
                <small class="text-muted">
                  what is the highest number to by multiplied
                </small>

@@ -8,15 +8,38 @@ form.onsubmit = e =>{
     let v = validate(F)// validate form inputs
     if(v !== true) { //if there is an error
         console.log(v)
+        msg_range = document.querySelector('#range_error')
+        msg_range.innerHTML = ''
+        document.querySelector('#mult_error').innerHTML = ''
+        if(v.min){
+            msg_range.innerHTML += `<span class='d-block'>${v.min}`
+            document.querySelector('#min-range').classList.add('error')
+        }else{
+            document.querySelector('#min-range').classList.remove('error')
+        }
+
+        if(v.max){ 
+            msg_range.innerHTML += `<span class='d-block'>${v.max}`
+            document.querySelector('#max-range').classList.add('error')
+        }else{ document.querySelector('#max-range').classList.remove('error')}
+
+        if(v.multiple){
+            document.querySelector('#mult_error').innerHTML = `<span class='d-block'>${v?.multiple}`
+            document.querySelector('#higest-multiple').classList.add('error')
+        }else{
+            document.querySelector('#higest-multiple').classList.remove('error')
+        }
         return
     }
 
-    let o = generateTable(F)
-    console.log(o)
-    display.innerHTML = o.join(' ')
+    display.innerHTML= generateTable(F).join('')
     let title = document.createElement('h2')
     title.innerHTML = 'Generated Result'
-    display.parentElement.prepend(title)
+    if(!display.classList.contains('hasTitle')){
+        display.parentElement.prepend(title)
+        display.classList.add('hasTitle')
+    }
+    
 }
 
 let validate = (form) => {
@@ -24,11 +47,10 @@ let validate = (form) => {
     let max = parseInt(form.max_range.value)
     let multiple = parseInt(form.highest_multiple.value)
     let err = {}
+    if(min <= 0 || isNaN(min)) err.min = 'Minimum Range must be greater than or equal to 1'
 
-    if(min <= 0 || min === '') err.min = 'Minimum Range must be greater than or equal to 1'
-
-    if (max <= min || max === '') err.max = 'Maximum range must be greater than or equal to the Minimum range'
-    if (multiple < 1 || multiple === '' ) err.mulitple = 'Highest Mulitple must be greater than 1'
+    if (max <= min || isNaN(max)) err.max = 'Maximum range must be greater than or equal to the Minimum range'
+    if (multiple < 1 || isNaN(multiple) ) err.multiple = 'Highest Mulitple must be greater than 1'
     return  (Object.keys(err).length == 0) ? true : err
 }
 
