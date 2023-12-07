@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+        const User = {
+    'name':'John',
+    'age':20,
+    'address':"berger lagos",
+    'hobbies': ['Dancing','Reading','Eating']
+}
+
+/*const {name,age,...others} = User //Object destructuring using rest operator (...)
+console.log('Name: '+User.name)
+console.log('Age: '+age)
+console.log('Hobby: '+others.hobbies)*/
+
+/*const [val1,val2] = others.hobbies //Array Destructuring
+console.log(val1)
+console.log(val2)*/
+
+//The user object is still intact
+console.log('My name is still '+User.name)
+
+let newValues = Object.values(User) //Retrive all the values of the Object as Array
+const [username,myage,...info] = Object.values(User)
+console.log(newValues[0])
+console.log('destructured age: '+myage)
+
+//Create new object
+const Adamu = Object.create(User)
+Adamu.name = 'Adamu'
+
+const {name,age} = Adamu
+console.log(name)
+
+//Demonstrating the spread operator
+//create a new User object with two new properties
+const Student = {
+    ...User,
+    'fruits': ['Oranges','Bananas'],
+    'relations': ['Mother', 'Father']
+}
+
+console.log(Student.name)
+
+
+
+    </script>
+</body>
+</html>
