@@ -4,67 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Object</title>
-    <script>
-        window.onload = () =>{
-            
-            let time = new Date('7 12 2023 23:30:45')
-            Days = ['Sun','Mon','Tue','Wed','Thur','Fri','Sat']
-            Months = ['Jan','Feb','March','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec']
-            displayDate = `${Days[time.getDay()]} ${nthNumber(time.getDate())} ${Months[time.getMonth()]}, ${time.getFullYear()}`
-            displayTime = `${timeFormat(time.getHours())}:${time.getMinutes()}:${time.getSeconds()} ${ampm(time.getHours())}`
-            document.querySelector('#date').innerHTML = 'Date: '+displayDate
-            // document.querySelector('#time').innerHTML = 'Time: '+displayTime
-            tickTime()
-        }
-
-        //function definitions
-            //function to add ordinal suffix
-            const nthNumber = (number) => {
-                if (number > 3 && number < 21) return number+"th";
-                    switch (number % 10) {
-                        case 1:
-                        return number+"st";
-                        case 2:
-                        return number+"nd";
-                        case 3:
-                        return number+"rd";
-                        default:
-                        return number+"th";
-                    }
-                };
-
-                const tickTime = (format = 12) => {
-                    setInterval(()=>{
-                        time = new Date()
-                        if(format === 12){
-                            output = `${timeFormat(time.getHours())}:${time.getMinutes()}:${time.getSeconds()} ${ampm(time.getHours())}`
-                        }
-                        else{
-                            output = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
-                        }
-                        document.querySelector('#time').innerHTML = 'Time: '+output;
-                    },1000)
-                    
-                }
-
-            const timeFormat = (number) => {
-                if(number > 12){
-                    return number % 12
-                }
-
-                if(number == 0) return number + 12
-
-                return number
-            }
-
-            const ampm = number => {
-                return (parseInt(number) >= 12) ? 'pm' : 'am' 
-            }
-
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css" integrity="sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../assets/js/date.js"></script>
 </head>
 <body>
-    <div id="date"></div>
+    <div class="container">
+        <div class="dflex g-3">
+            <div id="date"></div>
     <div id="time"></div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <form action="">
+            <label for="date1">Choose date1</label>
+            <input type="date" class="form-control mb-3" name="date1" id="date1">
+            
+            <label for="date2"> Choose date2</label>
+            <input type="date" class="form-control" name="date2" id="date2">
+            <div class="btn-group p-3">
+                <button type="button" class="btn btn-danger" onclick="timeDiff()" title="Find Difference in time between date1 and date2">Time Difference</button>
+                <button type="button" class="btn btn-primary" onclick="timeSub()" title="Subtract Date2 from Date1">Time subtract</button>
+                <button type="button" class="btn btn-warning" onclick="" title="Add to Date1">Time Add</button>
+
+            </div>
+            <div id="display"></div>
+        </form>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+
+<!-- Custome script -->
+<script>
+    const displayDom = document.querySelector('#display')
+    const date1 = document.querySelector('#date1')
+    const date2 = document.querySelector('#date2')
+    const errMsg = '<span class="text-danger">Please Choose Date1 and Date 2<span>'
+    const errMsg2 = '<span class="text-danger">Please Choose Date1 <span>'
+
+    const validate = (all = true) => {
+        if (all){
+            return (date1.value.length == 0 || date2.value.length == 0 )? false : true
+        }
+
+        return date1.value.length == 0 ? false : true
+    }
+
+    // Function to find date difference
+    const timeDiff = () => {
+        displayDom.innerHTML = validate() ? moment(date2.value).diff(date1.value,'days') + " days" : errMsg
+    }
+
+    const timeSub = () => {
+       if(validate(false)){
+        let unit = prompt("Unit to Add ('days | weeks | months')")
+        let number = undefined
+        if(unit){
+            number = prompt(`How many ${unit} do you want to Subtract? Just numbers`)
+        }
+        if(number !== undefined){
+            displayDom.innerHTML = moment(date1.value).subtract(number,unit)
+        }
+       }else{
+        displayDom.innerHTML = errMsg2
+       }
+    }
+</script>
 </html>
