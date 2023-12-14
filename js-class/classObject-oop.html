@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Object Demo</title>
+    <!-- <script src= type="module"></script> -->
+</head>
+<body>
+    
+</body>
+<script type="module">
+    import {Student} from "../assets/js/oop/Student.js"
+    import {User} from "../assets/js/oop/Users.js"
+    let john = new User('John Legend',50)
+    let Ramadan = new Student('Ramadan',30,'computer science')
+    
+    john.talk()
+    Ramadan.talk()
+    console.log(Ramadan.getDetails())
+    //Reseting the object property
+    Ramadan.setDept('Electrical Engineering')
+    Ramadan.talk()
+    console.log(Ramadan.getDetails())
+</script>
+</html>
