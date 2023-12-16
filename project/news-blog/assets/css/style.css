@@ -1,0 +1,19 @@
+:root{
+    --cust-primary_color:teal;
+    --cust-secondary_color:orange;
+    --light-dark:gray
+}
+.title a{
+ text-decoration: none;
+ color:var(--cust-primary_color);
+ text-overflow: ellipsis;
+ max-height:2px;
+}
+.title a:hover{ 
+    color:rgba(3, 133, 138, 0.8)
+}
+
+#news-list  .card-header img{
+    aspect-ratio: 9/5;
+    object-fit: cover;
+}
