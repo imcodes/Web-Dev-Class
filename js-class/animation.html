@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Animation</title>
+    <style>
+        body{
+            display:flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+            align-items: middle;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .screen{
+            margin:0 auto;
+            width:500px;
+            height:500px;
+            border:1px solid #000;
+            box-shadow: inset 1px 2px 8px gray;
+            position:relative;
+        }
+        .circle,.square{
+            width:40%;
+            height:40%;
+            position:absolute;
+            transition:all 3s ease;
+        }
+        .circle{
+            border-radius: 50%;
+            background-color: yellow;
+            border:2px solid orange;
+            
+        }
+        .square{
+            background-color: teal;
+            border:2px solid greenyellow;
+            bottom:0;
+            right:0;
+        }
+        .btns{
+            padding: 1em;
+        }
+        .btns button{
+            padding:0.2em 0.5em;
+
+        }
+
+        .css-anim{
+            animation: move-anticlockwise  4s linear infinite ;
+        }
+        
+
+        .animate{
+            animation: animate 2s linear infinite;
+        }
+        .heartbeat{
+            animation: heartbeat 1s ease-in infinite alternate;
+        }
+        .move-anticlock{
+            animation: move-anticlockwise;
+        }
+        .ani-infinit{
+            animation-duration: infinite;
+        }
+
+        /* ANIMATION */
+        @keyframes animate {
+            from{background:yellow;}
+            to{background:green;}
+        }
+        @keyframes heartbeat{
+            from{
+                scale: 0.8;
+            }
+            to{
+                scale: 1;
+            }
+        }
+        @keyframes move-anticlockwise{
+            0% {
+                top:0;
+                left:0;
+            }
+            25% {
+                top:59%;
+                left:0%;
+            }
+            50% {
+                top:59%;
+                left:59%;
+            }
+            75%{
+                top:0;
+                left:59%;
+            }
+            100%{
+                top:0;
+                left:0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="screen">
+            <div class="circle"></div>
+            <div class="square"></div>
+        </div>
+        <div class="btns">
+            <button id="play" >Play Animation</button>
+            <button id="stop"> Stop Animation</button>
+        </div>
+    </main>
+
+    <main>
+        <h2>CSS Animation</h2>
+        <div class="screen">
+            <div class="circle heartbeat "></div>
+            <div class="square animate"></div>
+        </div>
+    </main>
+
+    <script>
+        const circle = document.querySelector('.circle')
+        const square = document.querySelector('.square')
+        const playBtn = document.getElementById('play')
+        const stopBtn = document.getElementById('stop')
+
+        let ptop = 0;
+        let bottom = 0;
+        let left = 0;
+        let right = 0;
+
+        const playAnimation = () => {
+            
+            timer = setInterval(animate,50)
+        }
+
+        const animate = () => {
+            
+            if(ptop < 59 && left <= 0){
+                ptop++
+                bottom++
+            }
+            if(ptop >= 59 && left < 59){
+                left++
+                right++
+            }
+            if(ptop >= 0 && left >= 59){
+                ptop--
+                bottom--
+            }
+
+            if(ptop <= 0 && left <= 59){
+                left--
+                right--
+            }
+            
+
+            circle.style.top = ptop+'%'
+            square.style.bottom = bottom+'%'
+            circle.style.left = left+'%'
+            square.style.right = right+'%'
+            
+        }
+
+        const stopAnimation = () => {
+            clearInterval(timer)
+        }
+
+        playBtn.onclick = playAnimation
+        stopBtn.onclick = stopAnimation
+    </script>
+</body>
+</html>

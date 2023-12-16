@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Navigator Demo</title>
+</head>
+<body>
+    <div>
+        <h2>User Coordinates</h2>
+        <aside id="coords-display"></aside>
+        <button onclick="getCoordinate()">Get Coordinates</button>
+    </div>
+</body>
+<script>
+    let getCoordinate = () => {
+         output = document.getElementById('coords-display')
+        if(navigator.geolocation){
+            navigator.geolocation.watchPosition(viewPosition)
+            console.log(navigator)
+        }{
+            output.innerHTML ="Geolocation is either not Enabled or supported by your browser"
+        }
+    }
+    let viewPosition = position =>{
+            let lat = position.coords.latitude
+            let long = position.coords.longitude
+            output.innerHTML = `Latitude: ${lat} | longitude: ${long}`
+            console.log('lat: '+lat+' Long: '+long)
+            console.log(position)
+        }
+</script>
+</html>
