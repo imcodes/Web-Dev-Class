@@ -64,27 +64,33 @@ export class News{
     // Method to display the news list
     // this takes an argument of the target DOM
     displayNewsList(target){
-        target.innerHTML = 'loading'
-        this.newsList.then(list => {
-            const Articles = list.articles
-            target.innerHTML = ''
-            Articles.map(article => {
-                target.innerHTML += this.showListTemplate(article)
+        return new Promise(resolve => {
+            target.innerHTML = 'loading'
+            this.newsList.then(list => {
+                const Articles = list.articles
+                target.innerHTML = ''
+                Articles.map(article => {
+                    target.innerHTML += this.showListTemplate(article)
+                })
+                resolve(target)
+                
             })
+           
         })
+        
     }
 
     showListTemplate(Article){
         const img = (Article.urlToImage) ? Article.urlToImage : 'https://placehold.co/600x400'
         return `<div class="col-12 col-sm-6 col-md-3">
-        <div class="card border-success">
+        <div class="card border-success" data-title="${Article.title}">
             <div class="card-header p-0">
                 <a href="#">
-                    <img src="${img}" class="w-100" alt="">
+                    <img src="${img}" class="openModal w-100" alt="">
                 </a>
             </div>
             <div class="card-body">
-                <h2 class="title h6"><a href="${Article.url}" target="_blank" title="${Article.title}">${Article.title.substr(0,40)}</a></h2>
+                <h2 class="openModal title h6"><a title="${Article.title}">${Article.title.substr(0,40)}</a></h2>
             </div>
             <div class="card-footer">
                 <div class="row g-2">
@@ -97,10 +103,15 @@ export class News{
                         <span>${Article.publishedAt}</span>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>`
     }
 
+    pop(msg){
+        this.getNewsDetail(msg).then(detail => console.log(detail))
+        alert(msg)
+    }
 
 }

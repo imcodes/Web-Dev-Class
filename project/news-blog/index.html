@@ -57,6 +57,18 @@
             </div>
         </div>
     </section>
+    <!-- News detail Modal Template -->
+    <section class="my-modal hide-modal">
+        <div class="my-modal-content">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        dkdjdkdjdkdkj
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Bootstrap Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -69,12 +81,18 @@
         import {News} from './assets/js/news.js'
         const url = 'https://newsapi.org/v2/everything?sortBy=publishedAt'
         const N = new News(url,'d1ab8e0e75c641d98fb7dd3c6756e7ba','blockchain')
+        
+        const pop = () => alert('dkdjddj')
+
         N.getNewsList()
         const nlist = document.getElementById('news-list')
         const skwd = document.querySelector('#searchKeyword > span')
-        N.displayNewsList(nlist)
+        N.displayNewsList(nlist).then( output => {
+            handlePop(output)
+        })
+        
+        // Handle the Search Opeartion
         skwd.innerHTML = N.getKeyword();
-
         const searchF = document.getElementById('searchForm')
         searchF.onsubmit = e => {
             e.preventDefault()
@@ -86,8 +104,25 @@
             N.setKeyword(s)
             N.getNewsList()
             skwd.innerHTML = N.getKeyword();
-            N.displayNewsList(nlist)
+            const HtmlOuptut = N.displayNewsList(nlist)
+
+            HtmlOuptut.then((tag)=>{
+                handlePop(tag)
+            })
         }
+
+        const handlePop = tag => {
+            tag.querySelectorAll('[data-title]').forEach(card => {
+                const title = card.getAttribute('data-title')
+                card.querySelectorAll('.openModal').forEach( link => {
+                    link.onclick = () => N.pop(title)
+                    console.log
+                })
+            })
+            
+        }
+
+        
      
       
     </script>
