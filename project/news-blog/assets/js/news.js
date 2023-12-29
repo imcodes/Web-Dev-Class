@@ -125,7 +125,7 @@ export class News{
             <div class="modal-display">
                 <div class="card">
                     <div class="card-header p-0 float-title">
-                        <img class="title-image w-100" src="${urlToImage}" alt="${title}">
+                        <img class="title-image border-rounded w-100" src="${urlToImage}" alt="${title}">
                         <h2 class="card-title px-5 py-2">${title}</h2>
                     </div>
                     <div class="card-body px-5 py-2">
