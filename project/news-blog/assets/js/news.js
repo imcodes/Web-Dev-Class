@@ -39,6 +39,8 @@ export class News{
             crossDomain: true,
             headers: {
                 'Authorization' : `${this.getApiKey()}`,
+                'mode': 'cors',
+                'Access-Control-Allow-Origin' : '*',
                 'X-Requested-With': 'XMLHttpRequest',
                 'Accept' : '*/*'
                 
