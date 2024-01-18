@@ -37,8 +37,13 @@ export class News{
         
         const response = fetch(url,{
             method: 'get',
+            crossDomain: true,
             headers: {
-                'Authorization' : `${this.getApiKey()}`
+                'Authorization' : `${this.getApiKey()}`,
+                'mode': 'cors',
+                'Access-Control-Allow-Origin' : '*',
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept' : '*/*'
                 
             }
         })

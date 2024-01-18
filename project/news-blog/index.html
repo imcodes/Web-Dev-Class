@@ -49,7 +49,9 @@
     <!-- Custom scritp -->
     <script type="module">
         import {News} from './assets/js/news.js'
-        const url = 'https://newsapi.org/v2/everything?sortBy=publishedAt'
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+        // const url = `${proxyUrl}https://newsapi.org/v2/everything?sortBy=publishedAt`
+        const url = `https://newsapi.org/v2/everything?sortBy=publishedAt`
         const N = new News(url,'d1ab8e0e75c641d98fb7dd3c6756e7ba','blockchain')
         
 
